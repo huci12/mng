@@ -25,13 +25,11 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:27.1-jre'
-
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
-    
     compile group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: '2.1.6.RELEASE', ext: 'pom'
-    
     compile group: 'io.spring.gradle', name: 'dependency-management-plugin', version: '1.0.8.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: '2.1.7.RELEASE'
     
 }
 

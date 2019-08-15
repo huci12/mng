@@ -9,13 +9,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<tiles:insertAttribute name="common" />
 <body>
-	<tiles:insertAttribute name="common" />
- 	<div class="container">
+	
+ 	
     	<tiles:insertAttribute name="header" />
     	<tiles:insertAttribute name="body" />
     	<tiles:insertAttribute name="footer" />
-    </div>
+    
 
 </body>
 </html>
