@@ -10,7 +10,7 @@ public class WebController {
 	@GetMapping("/")
 	public ModelAndView index(ModelAndView mav) {
 		System.out.println("1234");
-		mav.setViewName("/index");
+		mav.setViewName("/login");
 		return mav;
 	}
 }
