@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-인덱스
+컨츄리메인
 </body>
 </html>
