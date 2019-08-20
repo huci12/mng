@@ -13,7 +13,7 @@ public class CountryDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public List<CountryDto> selectCountryList(){
-		return sqlSession.selectList("countryMapper.selectCountryList");
-	}
+	//public List<CountryDto> selectCountryList(){
+		//return sqlSession.selectList("countryMapper.selectCountryList");
+	//}
 }

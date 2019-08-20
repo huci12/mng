@@ -2,9 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
 
-<select id="selectMember" resultType="com.mng.common.dto.MemberDto" parameterType="String">
+<select id="selectMember" resultType="MemberDto" parameterType="String">
 		select 
-			*
+			member_id,
+			member_number,
+			member_phone_number,
+			member_country,
+			member_city,
+			member_address,
+			member_email,
+			member_company,
+			member_company_unit,
+			member_nickname,
+			member_use,
+			member_group,
+			create_time,
+			password
+			
 			from member where member_id = #{member_id}
     </select>
     

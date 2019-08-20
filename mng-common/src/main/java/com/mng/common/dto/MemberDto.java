@@ -7,18 +7,18 @@ import lombok.Data;
 @Data
 public class MemberDto {
 
-	String member_id;
-	int member_number;
-	String member_Phone_number;
-	String member_country;
-	String member_city;
-	String member_address;
-	String member_email;
-	String member_company;
-	String member_company_unit;
-	String member_nickname;
-	String member_use;
-	char member_group;
-	Timestamp create_time;
-	String password;
+	private String memberId;
+	private int memberNumber;
+	private String memberPhoneNumber;
+	private String memberCountry;
+	private String memberCity;
+	private String memberAddress;
+	private String memberEmail;
+	private String memberCompany;
+	private String memberCompany_unit;
+	private String memberNickname;
+	private String memberUse;
+	private char memberGroup;
+	private Timestamp createTime;
+	private String password;
 }

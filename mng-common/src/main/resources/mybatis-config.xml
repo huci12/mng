@@ -17,7 +17,7 @@
 
 
     <!-- Model 객체 Alias  -->
-    <typeAliases>
+    <typeAliases>							
         <typeAlias alias="countryDto" type="com.mng.common.dto.CountryDto"></typeAlias>
         <typeAlias alias="memberDto" type="com.mng.common.dto.MemberDto"></typeAlias>
     </typeAliases>

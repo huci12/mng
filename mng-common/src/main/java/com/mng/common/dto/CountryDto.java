@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class CountryDto {
-	int country_id;
-	String country_name; 
-	String country_kor_name;
-	String country_nick_name_1;
-	String country_nick_name_2;
-	String country_language;
+	private int country_id;
+	private String country_name; 
+	private String country_kor_name;
+	private String country_nick_name_1;
+	private String country_nick_name_2;
+	private String country_language;
 	
 }

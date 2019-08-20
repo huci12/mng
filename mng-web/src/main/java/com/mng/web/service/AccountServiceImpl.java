@@ -30,7 +30,7 @@ public class AccountServiceImpl implements AccountService {
 		//log.info(TimeUtil.getNowStr() +" : " + username +" is login access");
 		System.out.println(member_id + "로그인 시도중");
 		MemberDto member = memberDao.selectMemeber(member_id);
-		if(member.getMember_id().equals("") || member.getMember_id() == null) {
+		if(member.getMemberId().equals("") || member.getMemberId() == null) {
 			//에러 발생
 			//log.error(member_id + " is login Failed");
 			new UsernameNotFoundException("해당 유저를 찾을수 없습니다.");
@@ -47,14 +47,14 @@ public class AccountServiceImpl implements AccountService {
 		//}
 		
 		//성공시 각 USER의 권한 별로 다른 authorities 권한을 제공 해줘야 한다.
-		return new User(member.getMember_id(),member.getPassword(),authorities(member));
+		return new User(member.getMemberId(),member.getPassword(),authorities(member));
 	}
 	
 	
 	private Collection<? extends GrantedAuthority> authorities(MemberDto member){
 		String role = "";
 		//관리자 사이트에서는 ADMIN만이 로그인 할수 있어야 한다.
-		switch(member.getMember_group()) {
+		switch(member.getMemberGroup()) {
 			case 'A' : 
 				//admin
 				role = "ADMIN";
