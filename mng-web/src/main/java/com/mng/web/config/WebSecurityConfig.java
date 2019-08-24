@@ -26,40 +26,55 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		//http.authorizeRequests().antMatchers("/css/**" , "/js/**","/img/**").permitAll()
-		//.antMatchers("/auth/admin/**").hasRole("ADMIN")
-		//.antMatchers("/auth/**").hasAnyRole("ADMIN","USER")
-		//.anyRequest().authenticated()
-		//;
+		 // 로그인 설정
+        //http.authorizeRequests()
+            // ROLE_USER, ROLE_ADMIN으로 권한 분리 유알엘 정의
+            //.antMatchers("/", "/user/login", "/error**").permitAll()
+            //.antMatchers("/**").access("ROLE_USER")
+            //.antMatchers("/**").access("ROLE_ADMIN")
+            //.antMatchers("/admin/**").access("ROLE_ADMIN")
+            //.antMatchers("/**").authenticated()
+        //.and()
+            // 로그인 페이지 및 성공 url, handler 그리고 로그인 시 사용되는 id, password 파라미터 정의
+            //.formLogin()
+            //.loginPage("/user/login")
+            //.defaultSuccessUrl("/")
+            //.failureHandler(authFailureHandler)
+            //.successHandler(authSuccessHandler)
+            //.usernameParameter("id")
+            //.passwordParameter("password")
+        //.and()    
+            // 로그아웃 관련 설정
+            //.logout().logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
+            //.logoutSuccessUrl("/")
+            //.invalidateHttpSession(true)
+        //.and()
+            // csrf 사용유무 설정
+            // csrf 설정을 사용하면 모든 request에 csrf 값을 함께 전달해야한다.
+            //.csrf()
+        //.and()
+            // 로그인 프로세스가 진행될 provider
+            //.authenticationProvider(authProvider);
 		
-		
-		//http.formLogin()
-		//.loginPage("/")
-		//.loginProcessingUrl("/authenticate")
-		//.failureUrl("/")
-		//.defaultSuccessUrl("/view/main/main")
-		//.usernameParameter("member_id")
-		//.passwordParameter("password")
-		//.permitAll();
-		
-		//http.logout()
-		//.logoutUrl("/logout")
-		//.logoutSuccessUrl("/")
-		//.permitAll();
-		
-		
-		// guest 페이지와 account 페이지를 제외 하고 로그인 페이지와 로그인 url 실패시 로그인 url 성공시 기본 url을 설정해준다.
 		http.authorizeRequests()
-		.antMatchers("/**").permitAll().anyRequest().authenticated()
-		.and().formLogin().loginPage("/")
-		.loginProcessingUrl("/authenticate")
-		.failureUrl("/")
-		.defaultSuccessUrl("/view/main/main")
-		.and().httpBasic();
+		.antMatchers("/", "/error/**").permitAll()
+		.antMatchers("/**").access("ROLE_USER")
+        .antMatchers("/**").access("ADMIN")
+        .antMatchers("/**").authenticated()
+        .and()
+        .formLogin()
+        .loginPage("/")
+        .defaultSuccessUrl("/view/main/main")
+        .failureUrl("/")
+        .loginProcessingUrl("/authenticate")
+        .and()
+        .httpBasic();
+
+	
 				
 	}
 	
-	@Override
+	//@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.authenticationProvider(authenticationProvider);
 	}

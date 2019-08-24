@@ -5,5 +5,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import com.mng.common.dto.MemberDto;
 
 public interface AccountService extends UserDetailsService{
-	
+	public MemberDto createMember(String memberId , String password);
 }

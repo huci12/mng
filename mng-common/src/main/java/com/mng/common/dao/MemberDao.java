@@ -16,18 +16,7 @@ public class MemberDao {
 	private SqlSession sqlSession;
 
 	public MemberDto selectMemeber(String member_id) {
-
-		//Map map = new HashMap<>();
-		//map = sqlSession.selectOne("memberMapper.selectMember",member_id);
-		//System.out.println(map);
-		
 		 MemberDto member = sqlSession.selectOne("memberMapper.selectMember",member_id);
-		 
-		 System.out.println("Mybatis 설정을 잘못 했네"); 
-		 System.out.println(member);
-		 
-		//MemberDto member = new MemberDto();
-		
 		return member;
 	}
 }
